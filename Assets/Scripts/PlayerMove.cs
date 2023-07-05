@@ -1,42 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    const float m_default_moveSpeed = 5;
+    Animator animator;
+    public float speed;
+    private Joystick joystick;
+    private SpriteRenderer spriteRenderer;
 
-    Rigidbody2D rigidbody2D;
-
-    [SerializeField]
-    float speed;
-
-    #region MonoBehaviour
-    void Start()
+    void Awake()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
-        speed = m_default_moveSpeed;
+        joystick = GameObject.FindObjectOfType<Joystick>();
+    }
+    void FixedUpdate()
+    {
+        if (joystick.Horizontal > 0)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            //animator.SetBool("isRun", true);
+            MoveControl();
+        }
+        else if (joystick.Horizontal < 0)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+           // animator.SetBool("isRun", true);
+            MoveControl();
+        }
+        else  animator.SetBool("isRun", false);
     }
 
-    #endregion
-
-    #region Programmer Defined
-
-    public void move()
+    private void MoveControl()
     {
-        rigidbody2D.AddForce(new Vector2(speed * Time.deltaTime, 0.0f));
+        animator.SetBool("isRun", true);
+
+        Vector3 rightMovement = Vector3.right * speed * Time.deltaTime * joystick.Horizontal;
+        transform.position += rightMovement;
     }
-
-    public void jump()
-    {
-
-    }
-
-    public void skill()
-    {
-
-    }
-
-    #endregion
 }
