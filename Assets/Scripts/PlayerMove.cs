@@ -4,33 +4,39 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float speed;
-    private Joystick joystick;
-    private SpriteRenderer spriteRenderer;
+    const float m_default_moveSpeed = 5;
 
-    void Awake()
+    Rigidbody2D rigidbody2D;
+
+    [SerializeField]
+    float speed;
+
+    #region MonoBehaviour
+    void Start()
     {
-        joystick = GameObject.FindObjectOfType<Joystick>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
+
+        speed = m_default_moveSpeed;
     }
 
-    void FixedUpdate()
-    {
-        if(joystick.Horizontal > 0 )
-        {
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            MoveControl();
-        }
-        else if(joystick.Horizontal < 0)
-        {
-            transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+    #endregion
 
-            MoveControl();
-        }
+    #region Programmer Defined
+
+    public void move()
+    {
+        rigidbody2D.AddForce(new Vector2(speed * Time.deltaTime, 0.0f));
     }
 
-    private void MoveControl()
+    public void jump()
     {
-        Vector3 rightMovement = Vector3.right * speed * Time.deltaTime * joystick.Horizontal;
-        transform.position += rightMovement;
+
     }
+
+    public void skill()
+    {
+
+    }
+
+    #endregion
 }
