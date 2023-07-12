@@ -24,8 +24,8 @@ public class MonsterMoveScript : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log("ground : " + CheckGround());
-        Debug.Log("front : " + CheckFront());
+        //Debug.Log("ground : " + CheckGround());
+        //Debug.Log("front : " + CheckFront());
         if (CheckGround() && !CheckFront())
         {
             MonsterMove();
