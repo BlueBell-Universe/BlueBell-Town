@@ -36,16 +36,25 @@ public class PlayerMove : MonoBehaviour
             MoveControl();
         }
         else  animator.SetBool("isRun", false);
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Ground"))
+        if(rigid.velocity.y < 0)
+        {
+            Debug.DrawRay(rigid.position, Vector3.down, new Color(0, 1, 0));
+            RaycastHit2D rayhit = Physics2D.Raycast(rigid.position, Vector3.down, 0.5f);
+
+            if(rayhit.collider.CompareTag("Ground"))
+            {
+                isJumping = true;
+                animator.SetBool("isJump", true);
+            }
+        }
+        else if(rigid.velocity.y == 0)
         {
             isJumping = false;
             animator.SetBool("isJump", false);
         }
     }
+
     private void MoveControl()
     {
         animator.SetBool("isRun", true);
