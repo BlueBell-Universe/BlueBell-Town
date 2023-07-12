@@ -11,8 +11,13 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private float jumpForce;
 
+    [SerializeField]
+    GameObject FireObject;
+
+
     void Awake()
     {
+        FireObject = GetComponent<GameObject>();
         jumpForce = 3.0f;
         animator = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
@@ -59,5 +64,23 @@ public class PlayerMove : MonoBehaviour
             isJumping = true;
         }
         else return;
+    }
+    
+    public void Skill1()
+    {
+        Vector3 targetPos;
+        if (this.transform.rotation.y > 0)
+        {
+            targetPos = new Vector3(this.transform.position.x + 1.0f, this.transform.position.y + 1.0f, 0.0f);
+        }
+        else
+        {
+            targetPos = new Vector3(this.transform.position.x - 1.0f, this.transform.position.y - 1.0f, 0.0f);
+        }
+
+        GameObject FirePrefab = FireObject;
+        Instantiate(FirePrefab, targetPos, Quaternion.identity);
+        
+        animator.SetTrigger("attack");
     }
 }
