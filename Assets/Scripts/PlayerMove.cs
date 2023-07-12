@@ -98,10 +98,10 @@ public class PlayerMove : MonoBehaviour
         else
         {
             targetPos = new Vector3( transform.position.x + 1.0f,  transform.position.y + 1.0f, -1.0f);
-
         }
 
         Instantiate(FireObject, targetPos, Quaternion.identity);
+
         if (playerManaScript.currentMana >= 5)
         {
             playerManaScript.UseMana(5);

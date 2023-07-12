@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4105362945620786468}
   - component: {fileID: 1241082877}
   - component: {fileID: 4952657964393573960}
+  - component: {fileID: 2138670950}
+  - component: {fileID: 2138670951}
   m_Layer: 3
   m_Name: Wizard
   m_TagString: Player
@@ -91,8 +93,39 @@ MonoBehaviour:
   jumpForce: 0
   speed: 2
   FireObject: {fileID: 1163413052788614120, guid: fab867c206411244bbfcfe3415be0c37, type: 3}
-  playerHPScript: {fileID: 0}
+  playerHPScript: {fileID: 2138670950}
   playerManaScript: {fileID: 0}
+--- !u!114 &2138670950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105362945620786469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 803071f9ef8f3444c873f7f8af7c0b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 100
+  hpBar: {fileID: 0}
+  hpText: {fileID: 0}
+--- !u!114 &2138670951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105362945620786469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138b7bb43bc3d734f93ee2972f28eab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mana: 100
+  manaBar: {fileID: 0}
+  manaText: {fileID: 0}
+  currentMana: 0
 --- !u!1001 &4105362946132217688
 PrefabInstance:
   m_ObjectHideFlags: 0

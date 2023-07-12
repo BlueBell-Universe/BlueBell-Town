@@ -709,11 +709,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &256537770 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4105362945620786469, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
-  m_PrefabInstance: {fileID: 1241082872}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &269270424
 GameObject:
   m_ObjectHideFlags: 0
@@ -5099,6 +5094,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 470227851}
     m_Modifications:
+    - target: {fileID: 2138670950, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
+      propertyPath: hpBar
+      value: 
+      objectReference: {fileID: 51861917}
+    - target: {fileID: 2138670950, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
+      propertyPath: hpText
+      value: 
+      objectReference: {fileID: 570944349}
+    - target: {fileID: 2138670951, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
+      propertyPath: manaBar
+      value: 
+      objectReference: {fileID: 414351530}
+    - target: {fileID: 2138670951, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
+      propertyPath: manaText
+      value: 
+      objectReference: {fileID: 1042838192}
     - target: {fileID: 4105362945620786469, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
       propertyPath: m_Name
       value: Wizard
@@ -5147,14 +5158,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4952657964393573960, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
-      propertyPath: Env
-      value: 
-      objectReference: {fileID: 470227850}
-    - target: {fileID: 4952657964393573960, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
-      propertyPath: playerHPScript
-      value: 
-      objectReference: {fileID: 2138670950}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
 --- !u!1 &1279630643
@@ -5242,7 +5245,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4952657964393573960, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
   m_PrefabInstance: {fileID: 1241082872}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256537770}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f9474baea9ea3a4fb1ef7e17fa86553, type: 3}
@@ -9496,34 +9499,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4105362945620786471, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
   m_PrefabInstance: {fileID: 1241082872}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2138670950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256537770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 803071f9ef8f3444c873f7f8af7c0b89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 100
-  hpBar: {fileID: 51861917}
-  hpText: {fileID: 570944349}
---- !u!114 &2138670951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256537770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 138b7bb43bc3d734f93ee2972f28eab5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mana: 100
-  manaBar: {fileID: 414351530}
-  manaText: {fileID: 1042838192}
-  currentMana: 0
