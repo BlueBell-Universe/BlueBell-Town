@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rigid;
     private bool isJumping;
+    public PlayerHP playerHPScript;
     [SerializeField]
     private float jumpForce;
 
@@ -16,11 +17,21 @@ public class PlayerMove : MonoBehaviour
 
     void Awake()
     {
+        playerHPScript = GetComponent<PlayerHP>();
         jumpForce = 3.0f;
         animator = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
         joystick = GameObject.FindObjectOfType<Joystick>();
     }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            playerHPScript.OnDamaged(5);
+        }
+    }
+
     void FixedUpdate()
     {
         if (joystick.Horizontal > 0)
