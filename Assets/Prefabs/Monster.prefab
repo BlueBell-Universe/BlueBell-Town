@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7835828205309304045}
   - component: {fileID: 7835828205309304044}
   - component: {fileID: 7835828205309304046}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Monster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,6 +94,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041a3cc48562e7b4891ce1682984c491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayPlayerLength: 0.5
+  x_f: 0
+  y_f: 0
+  x_b: 0
+  y_b: 0
 --- !u!1001 &7835828205979955381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,6 +153,10 @@ PrefabInstance:
     - target: {fileID: 8068589428734277748, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: m_Name
       value: Green Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068589428734277748, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}

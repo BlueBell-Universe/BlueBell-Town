@@ -2,22 +2,26 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    Animator animator;
-    public float speed;
+
+    [SerializeField]
+    private float jumpForce;
+
+    private Animator animator;
     private Joystick joystick;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rigid;
     private bool isJumping;
-    public PlayerHP playerHPScript;
-    [SerializeField]
-    private float jumpForce;
-
+    public float speed;
     public GameObject FireObject;
 
+
+    public PlayerHP playerHPScript;
+    public PlayerMana playerManaScript;
 
     void Awake()
     {
         playerHPScript = GetComponent<PlayerHP>();
+        playerManaScript = GetComponent<PlayerMana>();
         jumpForce = 3.0f;
         animator = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
@@ -98,7 +102,11 @@ public class PlayerMove : MonoBehaviour
         }
 
         Instantiate(FireObject, targetPos, Quaternion.identity);
-        
+        if (playerManaScript.currentMana >= 5)
+        {
+            playerManaScript.UseMana(5);
+        }
+        else return;
         animator.SetTrigger("attack");
     }
 }
