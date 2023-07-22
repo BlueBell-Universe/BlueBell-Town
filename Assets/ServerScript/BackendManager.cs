@@ -28,9 +28,25 @@ public class BackendManager : MonoBehaviour
     // =======================================================
     async void Test()
     {
-        await Task.Run(() => {
-            // 추후 테스트 케이스 추가
+        // [추가] 뒤끝 회원가입 함수
+        //await Task.Run(() => {
+        //    BackendLogin.Instance.CustomSignUp("user1", "1234");
+        //    Debug.Log("테스트를 종료합니다.");
+        //});
+
+        // [추가] 뒤끝 회원가입 함수
+        //await Task.Run(() => {
+        //    BackendLogin.Instance.CustomLogin("user1", "1234"); 
+        //    Debug.Log("테스트를 종료합니다.");
+        //});
+
+        // [추가] 닉네임 변겅
+        await Task.Run(() =>
+        {
+            BackendLogin.Instance.CustomLogin("user1", "1234"); // [추가] 뒤끝 로그인
+            BackendLogin.Instance.UpdateNickname("원하는 이름"); 
             Debug.Log("테스트를 종료합니다.");
         });
+
     }
 }
