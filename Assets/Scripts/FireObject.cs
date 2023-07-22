@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FireObject : MonoBehaviour
 {
+    public float damage = 5;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Monster"))
