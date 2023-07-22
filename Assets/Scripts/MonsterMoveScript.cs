@@ -14,12 +14,12 @@ public class MonsterMoveScript : MonoBehaviour
 
     [Header("Attack")]
     MonsterAttackScript monsterAttackScript;
-    RaycastHit2D hitPlayerFront, hitPlayerBack;
-    public float rayPlayerLength = 0.5f;
-    [SerializeField] private float x_f;
-    [SerializeField] private float y_f;
-    [SerializeField] public float x_b;
-    [SerializeField] private float y_b;
+    RaycastHit2D hitPlayerFront, hitPlayerIn;
+    public float rayPlayerLength = 1f;
+    public float rayInLength = 0.6f;
+
+    [Header("check Player")]
+    [SerializeField] private bool move;
 
     private void Start()
     {
@@ -28,17 +28,14 @@ public class MonsterMoveScript : MonoBehaviour
     }
     private void Update()
     {
-        if (CheckPlayerFront())
+        CheckPlayerIn();
+
+        if (move == true)
         {
-            MonsterMove();
-        }
-        else if (CheckPlayerBack())
-        {
-            flipX *= -1;
-            spriteRenderer.flipX = !spriteRenderer.flipX;
-        }
-        else
-        {
+            if (!CheckPlayerFront() && CheckPlayerBack())
+            {
+                flipX *= -1;
+            }
             if (CheckGround() && !CheckFront())
             {
                 MonsterMove();
@@ -49,6 +46,7 @@ public class MonsterMoveScript : MonoBehaviour
                 spriteRenderer.flipX = !spriteRenderer.flipX;
             }
         }
+
     }
     public bool CheckGround()
     {
@@ -69,7 +67,7 @@ public class MonsterMoveScript : MonoBehaviour
         Vector2 startRay = new Vector2(transform.position.x + flipX * 0.35f, transform.position.y - 0.2f);
         Debug.DrawRay(startRay, transform.right * rayFtLength, Color.red);
         hitFt = Physics2D.Raycast(startRay, transform.right, rayFtLength);
-        if (hitFt)
+        if (hitFt&&!hitFt.transform.CompareTag("Player"))
         {
             return true;
         }
@@ -87,7 +85,15 @@ public class MonsterMoveScript : MonoBehaviour
 
     public bool CheckPlayerFront()
     {
-        Vector2 frontRay = new Vector2(transform.position.x + flipX * 0.4f, transform.position.y + -0.1f);
+        Vector2 frontRay;
+        if (flipX == -1)
+        {
+            frontRay = new Vector2(transform.position.x -2.3f, transform.position.y + -0.1f);
+        }
+        else
+        {
+            frontRay = new Vector2(transform.position.x + 0.3f, transform.position.y + -0.1f);
+        }
         Debug.DrawRay(frontRay, transform.right * rayPlayerLength, Color.blue);
         hitPlayerFront = Physics2D.Raycast(frontRay, transform.right, rayPlayerLength);
         if (hitPlayerFront)
@@ -105,15 +111,22 @@ public class MonsterMoveScript : MonoBehaviour
     }
     public bool CheckPlayerBack()
     {
-        Vector2 backRay = new Vector2(transform.position.x + flipX * -0.4f, transform.position.y + -0.1f);
-        Debug.DrawRay(backRay, -transform.right * rayPlayerLength, Color.blue);
-        hitPlayerBack = Physics2D.Raycast(backRay, -transform.right, rayPlayerLength);
-        if (hitPlayerBack)
+        Vector2 backRay;
+        if (flipX == -1)
         {
-            if (hitPlayerBack.transform.CompareTag("Player"))
-            {
-                //follow player
+            backRay = new Vector2(transform.position.x + 2.3f, transform.position.y + -0.1f);
 
+        }
+        else
+        {
+            backRay = new Vector2(transform.position.x -0.3f, transform.position.y + -0.1f);
+        }
+        Debug.DrawRay(backRay, -transform.right * rayPlayerLength, Color.white);
+        hitPlayerIn = Physics2D.Raycast(backRay, -transform.right, rayPlayerLength);
+        if (hitPlayerIn)
+        {
+            if (hitPlayerIn.transform.CompareTag("Player"))
+            {
                 return true;
             }
             else return false;
@@ -123,11 +136,36 @@ public class MonsterMoveScript : MonoBehaviour
             return false;
         }
     }
-
-    public void FollowPlayer(float flipX)
+    public bool CheckPlayerIn()
     {
-        transform.position = new Vector2(transform.position.x + flipX * moveSpeed * Time.deltaTime, transform.position.y);
-
+        Vector2 inRay = new Vector2(transform.position.x - 0.3f, transform.position.y - 0.1f);
+        Debug.DrawRay(inRay, transform.right * rayInLength, Color.red);
+        hitPlayerIn = Physics2D.Raycast(inRay, transform.right, rayInLength);
+        if (hitPlayerIn)
+        {
+            if (hitPlayerIn.transform.CompareTag("Player"))
+            {
+                //follow player
+                move = false;
+                return true;
+            }
+            else
+            {
+                move = true;
+                return false;
+            }
+        }
+        else
+        {
+            move = true;
+            return false;
+        }
     }
+
+    //public void FollowPlayer(float flipX)
+    //{
+    //    transform.position = new Vector2(transform.position.x + flipX * moveSpeed * Time.deltaTime, transform.position.y);
+
+    //}
 
 }
