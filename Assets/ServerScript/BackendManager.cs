@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Threading.Tasks; // [변경] async 기능을 이용하기 위해서는 해당 namepsace가 필요합니다.
 
 // 뒤끝 SDK namespace 추가
@@ -6,7 +7,6 @@ using BackEnd;
 
 public class BackendManager : MonoBehaviour
 {
-
     void Start()
     {
         var bro = Backend.Initialize(true); // 뒤끝 초기화

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 // 뒤끝 SDK namespace 추가
 using BackEnd;
@@ -71,6 +72,7 @@ public class BackendLogin : MonoBehaviour
         if (bro.IsSuccess())
         {
             Debug.Log("로그인이 성공했습니다. : " + bro);
+            SceneManager.LoadScene("JiHunScene");
         }
         else
         {
