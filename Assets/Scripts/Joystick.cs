@@ -30,10 +30,22 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointer
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 radius = outLine.sizeDelta / 2;
-        input = (eventData.position - outLine.anchoredPosition) / (radius * canvas.scaleFactor);
+        Vector2 clickPosition = eventData.position; // 클릭한 위치
+        Vector2 centerPosition = outLine.position; // 아웃라인의 중심 위치
+        Vector2 direction = clickPosition - centerPosition; // 클릭한 위치와 아웃라인 중심과의 방향 벡터
+        float distance = Mathf.Min(direction.magnitude, radius.x * canvas.scaleFactor); // 클릭한 위치와 아웃라인 중심 사이의 거리를 아웃라인 반지름으로 제한
+        input = direction.normalized * (distance / (radius.x * canvas.scaleFactor)); // 입력 값을 방향 벡터의 정규화 값으로 설정
         HandleInput(input.magnitude, input.normalized);
         handle.anchoredPosition = input * radius * handleRange;
     }
+
+    //public void OnDrag(PointerEventData eventData)
+    //{
+    //    Vector2 radius = outLine.sizeDelta / 2;
+    //    input = (eventData.position - outLine.anchoredPosition) / (radius * canvas.scaleFactor);
+    //    HandleInput(input.magnitude, input.normalized);
+    //    handle.anchoredPosition = input * radius * handleRange;
+    //}
 
     private void HandleInput(float magnitude, Vector2 normalised)
     {
