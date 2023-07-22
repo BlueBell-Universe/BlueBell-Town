@@ -32,6 +32,7 @@ public class PlayerHP : MonoBehaviour
     private void OnDie()
     {
         animator.SetTrigger("die");
+        Application.Quit();
         // 부활 선택창 표시
     }
 }

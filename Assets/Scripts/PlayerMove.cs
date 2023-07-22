@@ -41,13 +41,11 @@ public class PlayerMove : MonoBehaviour
         if (joystick.Horizontal > 0)
         {
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            //animator.SetBool("isRun", true);
             MoveControl();
         }
         else if (joystick.Horizontal < 0)
         {
             transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
-           // animator.SetBool("isRun", true);
             MoveControl();
         }
         else  animator.SetBool("isRun", false);
@@ -94,19 +92,19 @@ public class PlayerMove : MonoBehaviour
         if (this.transform.eulerAngles.y > 0)
         {
             targetPos = new Vector3(transform.position.x - 1.0f,transform.position.y + 1.0f, -1.0f);
+            Instantiate(FireObject, targetPos, Quaternion.Euler(0,180,0));
         }
         else
         {
             targetPos = new Vector3( transform.position.x + 1.0f,  transform.position.y + 1.0f, -1.0f);
+            Instantiate(FireObject, targetPos, Quaternion.identity);
         }
-
-        Instantiate(FireObject, targetPos, Quaternion.identity);
 
         if (playerManaScript.currentMana >= 5)
         {
             playerManaScript.UseMana(5);
+            animator.SetTrigger("attack");
         }
         else return;
-        animator.SetTrigger("attack");
     }
 }
