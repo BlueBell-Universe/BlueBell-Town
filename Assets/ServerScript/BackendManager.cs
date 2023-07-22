@@ -6,6 +6,7 @@ using BackEnd;
 
 public class BackendManager : MonoBehaviour
 {
+
     void Start()
     {
         var bro = Backend.Initialize(true); // 뒤끝 초기화
@@ -19,8 +20,7 @@ public class BackendManager : MonoBehaviour
         {
             Debug.LogError("초기화 실패 : " + bro); // 실패일 경우 statusCode 400대 에러 발생 
         }
-
-        Test();
+        DontDestroyOnLoad(this);
     }
 
     // =======================================================
@@ -41,12 +41,10 @@ public class BackendManager : MonoBehaviour
         //});
 
         // [추가] 닉네임 변겅
-        await Task.Run(() =>
-        {
-            BackendLogin.Instance.CustomLogin("user1", "1234"); // [추가] 뒤끝 로그인
-            BackendLogin.Instance.UpdateNickname("원하는 이름"); 
-            Debug.Log("테스트를 종료합니다.");
-        });
+        //await Task.Run(() =>
+        //{
+        //    BackendLogin.Instance.CustomLogin("user1", "1234"); // [추가] 뒤끝 로그인
+        //});
 
     }
 }

@@ -428,6 +428,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 470227851}
     m_Modifications:
+    - target: {fileID: 126629387004135410, guid: 5d48afae378e98944882b19336fde29c, type: 3}
+      propertyPath: rayPlayerLength
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7835828205309304042, guid: 5d48afae378e98944882b19336fde29c, type: 3}
       propertyPath: m_Name
       value: Monster
@@ -476,7 +480,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7835828205309304046, guid: 5d48afae378e98944882b19336fde29c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5d48afae378e98944882b19336fde29c, type: 3}
 --- !u!1 &170013380
 GameObject:
