@@ -20,10 +20,13 @@ public class BackendLogin : MonoBehaviour
     {
         ID_Text = GameObject.Find("ID_text").GetComponent<Text>();
         PW_Text = GameObject.Find("PW_text").GetComponent<Text>();
+    }
+
+    public void PanelActived()
+    {
         SignUpID_Text = GameObject.Find("SignUpID_text").GetComponent<Text>();
         SignUpPW_Text = GameObject.Find("SignUpPW_text").GetComponent<Text>();
         SignUpVerifyPW_Text = GameObject.Find("SignUpPWVerify_text").GetComponent<Text>();
-
     }
 
     #endregion
@@ -45,10 +48,10 @@ public class BackendLogin : MonoBehaviour
     public void CustomSignUp(/*string id, string pw*/) // Step 2. 회원가입 구현하기 로직
     {
         Debug.Log("회원가입을 요청합니다.");
-        
-        if(SignUpPW_Text.text != SignUpVerifyPW_Text.text)
+
+        if (SignUpPW_Text.text != SignUpVerifyPW_Text.text)
         {
-            Debug.Log("패스워드 확인!\n"+ "회원가입에 실패했습니다.");
+            Debug.Log("패스워드 확인!\n" + "회원가입에 실패했습니다.");
         }
 
         var bro = Backend.BMember.CustomSignUp(SignUpID_Text.text, SignUpPW_Text.text);
@@ -76,7 +79,7 @@ public class BackendLogin : MonoBehaviour
         }
         else
         {
-            Debug.LogError("로그인이 실패했습니다. : " + bro + ID_Text);
+            Debug.LogError("로그인이 실패했습니다. : " + bro);
         }
     }
 

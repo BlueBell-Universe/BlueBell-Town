@@ -7,6 +7,8 @@ using BackEnd;
 
 public class BackendManager : MonoBehaviour
 {
+    public InputField input;
+
     void Start()
     {
         var bro = Backend.Initialize(true); // 뒤끝 초기화
@@ -21,6 +23,20 @@ public class BackendManager : MonoBehaviour
             Debug.LogError("초기화 실패 : " + bro); // 실패일 경우 statusCode 400대 에러 발생 
         }
         DontDestroyOnLoad(this);
+    }
+
+    public void GetGoogleHash()
+    {
+        string googlehash = Backend.Utils.GetGoogleHash();
+        Debug.Log("Hash");
+        if(!string.IsNullOrEmpty(googlehash))
+        {
+            Debug.Log(googlehash);
+            if(input != null)
+            {
+                input.text = googlehash;
+            }
+        }
     }
 
     // =======================================================

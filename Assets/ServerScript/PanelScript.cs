@@ -9,4 +9,12 @@ public class PanelScript : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    private void Update()
+    {
+        if(this.gameObject.activeInHierarchy)
+        {
+            BackendLogin.Instance.PanelActived();
+        }
+    }
 }
