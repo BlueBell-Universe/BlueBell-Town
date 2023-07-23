@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class MonsterStat : MonoBehaviour
 {
-    [SerializeField] private float hp = 100;
+    public float hp = 50;
     public float currentHp;
-    [SerializeField] private float atk = 10;
-    [SerializeField] private float del;
-    [SerializeField] private float exp;
+    public float atk = 10;
+    public float del;
+    public float exp;
 
     public GameObject HpBarBackground;
     public Image HpBarFilled;
+    
     public GameObject[] dropItem;
+
     void Start()
     {
         currentHp = hp;
@@ -52,4 +54,6 @@ public class MonsterStat : MonoBehaviour
         Destroy(gameObject);
 
     }
+
+
 }

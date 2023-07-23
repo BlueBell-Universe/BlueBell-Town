@@ -17,6 +17,7 @@ public class MonsterMoveScript : MonoBehaviour
     RaycastHit2D hitPlayerFront, hitPlayerIn;
     public float rayPlayerLength = 1f;
     public float rayInLength = 0.6f;
+    public GameObject monsterAttack;
 
     [Header("check Player")]
     [SerializeField] private bool move;
@@ -147,6 +148,7 @@ public class MonsterMoveScript : MonoBehaviour
             {
                 //follow player
                 move = false;
+                SetAttackTrue();
                 return true;
             }
             else
@@ -162,6 +164,17 @@ public class MonsterMoveScript : MonoBehaviour
         }
     }
 
+
+    public void SetAttackTrue()
+    {
+        monsterAttack.SetActive(true);
+        Invoke("SetAttackFalse", 1f);
+    }
+    public void SetAttackFalse()
+    {
+        monsterAttack.SetActive(false);
+        Invoke("SetAttackTrue",1f);
+    }
     //public void FollowPlayer(float flipX)
     //{
     //    transform.position = new Vector2(transform.position.x + flipX * moveSpeed * Time.deltaTime, transform.position.y);

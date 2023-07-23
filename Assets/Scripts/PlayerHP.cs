@@ -23,7 +23,7 @@ public class PlayerHP : MonoBehaviour
         currentHP -= damage;
         hpText.text = currentHP + "/" + HP;
         hpBar.fillAmount = currentHP / HP;
-        if(currentHP <= 0)
+        if (currentHP <= 0)
         {
             OnDie();
         }
@@ -34,5 +34,14 @@ public class PlayerHP : MonoBehaviour
         animator.SetTrigger("die");
         Application.Quit();
         // 부활 선택창 표시
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("MonsterAttack"))
+        {
+            MonsterStat monsterStat = collision.gameObject.GetComponentInParent<MonsterStat>();
+            OnDamaged(monsterStat.atk);
+        }
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - Monster
   - SkillObj
   - 1_1
+  - MonsterAttack
   layers:
   - Default
   - TransparentFX
