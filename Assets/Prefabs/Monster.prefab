@@ -430,3 +430,5 @@ MonoBehaviour:
   exp: 0
   HpBarBackground: {fileID: 9183417635745522168}
   HpBarFilled: {fileID: 6879431028551168336}
+  dropItem:
+  - {fileID: 6693746710342748026, guid: af01786084efd454986c79bc26bf6af4, type: 3}

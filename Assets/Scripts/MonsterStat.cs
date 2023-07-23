@@ -13,6 +13,7 @@ public class MonsterStat : MonoBehaviour
 
     public GameObject HpBarBackground;
     public Image HpBarFilled;
+    public GameObject[] dropItem;
     void Start()
     {
         currentHp = hp;
@@ -35,5 +36,20 @@ public class MonsterStat : MonoBehaviour
         }
         currentHp -= _hit;
         HpBarFilled.fillAmount = currentHp / hp;
+        if (currentHp <= 0)
+        {
+            Dead();
+        }
+    }
+
+
+    public void Dead()
+    {
+        foreach (GameObject _dropItem in dropItem)
+        {
+            Instantiate(_dropItem,gameObject.transform.position,Quaternion.identity);
+        }
+        Destroy(gameObject);
+
     }
 }
