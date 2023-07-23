@@ -26,7 +26,9 @@ public class MonsterMoveScript : MonoBehaviour
     {
         spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
         monsterAttackScript = GetComponent<MonsterAttackScript>();
+
     }
+
     private void Update()
     {
         CheckPlayerIn();
@@ -68,7 +70,7 @@ public class MonsterMoveScript : MonoBehaviour
         Vector2 startRay = new Vector2(transform.position.x + flipX * 0.35f, transform.position.y - 0.2f);
         Debug.DrawRay(startRay, transform.right * rayFtLength, Color.red);
         hitFt = Physics2D.Raycast(startRay, transform.right, rayFtLength);
-        if (hitFt&&!hitFt.transform.CompareTag("Player"))
+        if (hitFt && !hitFt.transform.CompareTag("Player"))
         {
             return true;
         }
@@ -89,7 +91,7 @@ public class MonsterMoveScript : MonoBehaviour
         Vector2 frontRay;
         if (flipX == -1)
         {
-            frontRay = new Vector2(transform.position.x -2.3f, transform.position.y + -0.1f);
+            frontRay = new Vector2(transform.position.x - 2.3f, transform.position.y + -0.1f);
         }
         else
         {
@@ -120,7 +122,7 @@ public class MonsterMoveScript : MonoBehaviour
         }
         else
         {
-            backRay = new Vector2(transform.position.x -0.3f, transform.position.y + -0.1f);
+            backRay = new Vector2(transform.position.x - 0.3f, transform.position.y + -0.1f);
         }
         Debug.DrawRay(backRay, -transform.right * rayPlayerLength, Color.white);
         hitPlayerIn = Physics2D.Raycast(backRay, -transform.right, rayPlayerLength);
@@ -148,7 +150,7 @@ public class MonsterMoveScript : MonoBehaviour
             {
                 //follow player
                 move = false;
-                SetAttackTrue();
+
                 return true;
             }
             else
@@ -163,22 +165,5 @@ public class MonsterMoveScript : MonoBehaviour
             return false;
         }
     }
-
-
-    public void SetAttackTrue()
-    {
-        monsterAttack.SetActive(true);
-        Invoke("SetAttackFalse", 1f);
-    }
-    public void SetAttackFalse()
-    {
-        monsterAttack.SetActive(false);
-        Invoke("SetAttackTrue",1f);
-    }
-    //public void FollowPlayer(float flipX)
-    //{
-    //    transform.position = new Vector2(transform.position.x + flipX * moveSpeed * Time.deltaTime, transform.position.y);
-
-    //}
 
 }

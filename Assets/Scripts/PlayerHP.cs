@@ -36,7 +36,7 @@ public class PlayerHP : MonoBehaviour
         // 부활 선택창 표시
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("MonsterAttack"))
         {
