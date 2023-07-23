@@ -1254,10 +1254,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Silver Coin
       objectReference: {fileID: 0}
-    - target: {fileID: 6693746710342748026, guid: af01786084efd454986c79bc26bf6af4, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 7768011642477354098, guid: af01786084efd454986c79bc26bf6af4, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -9486,6 +9482,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 470227851}
     m_Modifications:
+    - target: {fileID: 4181586975174199289, guid: 5d48afae378e98944882b19336fde29c, type: 3}
+      propertyPath: hp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5789875056925932856, guid: 5d48afae378e98944882b19336fde29c, type: 3}
       propertyPath: m_RootOrder
       value: 3

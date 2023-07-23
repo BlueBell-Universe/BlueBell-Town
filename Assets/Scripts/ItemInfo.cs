@@ -8,11 +8,12 @@ public class ItemInfo
     public string itemName;
     public string itemCode;
     public string itemType;
+    public int itemAmount;
     public ItemInfo(GameObject _itemObj,string _itemName, string _itemCode)
     {
         itemObj = _itemObj;
         itemName = _itemName;
-        itemCode = _itemCode;
+        itemCode = _itemCode; 
     }
 
     public string checkItemType()
@@ -30,6 +31,13 @@ public class ItemInfo
                 break;
         }
         return itemType;
+    }
+
+    public int SetItemAmount()
+    {
+        itemAmount = Random.Range(1, 10);
+
+        return itemAmount;
     }
 
 
