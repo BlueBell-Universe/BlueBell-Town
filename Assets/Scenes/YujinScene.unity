@@ -1254,6 +1254,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Silver Coin
       objectReference: {fileID: 0}
+    - target: {fileID: 6693746710342748026, guid: af01786084efd454986c79bc26bf6af4, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7768011642477354098, guid: af01786084efd454986c79bc26bf6af4, type: 3}
       propertyPath: m_RootOrder
       value: 4
