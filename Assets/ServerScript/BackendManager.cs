@@ -22,6 +22,7 @@ public class BackendManager : MonoBehaviour
         {
             Debug.LogError("초기화 실패 : " + bro); // 실패일 경우 statusCode 400대 에러 발생 
         }
+        Test();
         DontDestroyOnLoad(this);
     }
 
@@ -61,6 +62,41 @@ public class BackendManager : MonoBehaviour
         //{
         //    BackendLogin.Instance.CustomLogin("user1", "1234"); // [추가] 뒤끝 로그인
         //});
+
+        // [추가] 데이터 삽입함수
+        //await Task.Run(() =>
+        //{
+        //    BackendLogin.Instance.CustomLogin("user1","1234");
+        //    BackendGameData.Instance.GameDataInsert();
+        //    Debug.Log("테스트 종료");
+        //});
+
+        // [추가] 데이터 불러오기 함수
+        //await Task.Run(() =>
+        //{
+        //    BackendLogin.Instance.CustomLogin("user1", "1234");
+        //    BackendGameData.Instance.GameDataInsert();
+        //    BackendGameData.Instance.GameDataGet();
+        //    Debug.Log("테스트 종료");
+        //});
+
+        // [추가] 데이터 변경 및 덮어쓰기 함수
+        await Task.Run(() =>
+        {
+            BackendLogin.Instance.CustomLogin("user1", "1234");
+
+            BackendGameData.Instance.GameDataGet();
+            
+            if(BackendGameData.userData == null)
+            {
+                BackendGameData.Instance.GameDataInsert();
+            }
+
+            BackendGameData.Instance.LevelUp();
+            BackendGameData.Instance.GamedataUpdate();
+
+            Debug.Log("테스트 종료");
+        });
 
     }
 }
