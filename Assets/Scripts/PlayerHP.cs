@@ -11,13 +11,16 @@ public class PlayerHP : MonoBehaviour
     private Animator animator;
     private float currentHP;
 
+    public MonsterStat monsterStat;
+    public bool isColliding = false;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         currentHP = HP;
         hpText.text = currentHP + "/" + HP;
+        monsterStat = GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterStat>();
     }
-
     public void OnDamaged(float damage)
     {
         currentHP -= damage;
@@ -36,12 +39,22 @@ public class PlayerHP : MonoBehaviour
         // 부활 선택창 표시
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("MonsterAttack"))
+        if (collision.CompareTag("MonsterAttack"))
         {
-            MonsterStat monsterStat = collision.gameObject.GetComponentInParent<MonsterStat>();
+            if (isColliding)
+            {
+                return;
+            }
+            isColliding = true;
             OnDamaged(monsterStat.atk);
+            StartCoroutine(Reset());
         }
+    }
+    IEnumerator Reset()
+    {
+        yield return new WaitForEndOfFrame();
+        isColliding = false;
     }
 }

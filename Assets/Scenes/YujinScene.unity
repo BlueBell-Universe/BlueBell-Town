@@ -5035,7 +5035,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1241082877, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
       propertyPath: m_SleepingMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2138670950, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
       propertyPath: hpBar
@@ -8244,24 +8244,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1788092629 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5789875056925932861, guid: 5d48afae378e98944882b19336fde29c, type: 3}
-  m_PrefabInstance: {fileID: 4150962090156729947}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1788092636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788092629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 885533c885f06f44e884c7da1156dd93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monsterAttack: {fileID: 2022958910}
 --- !u!1 &1806919488
 GameObject:
   m_ObjectHideFlags: 0
@@ -9069,64 +9051,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997697164}
   m_CullTransparentMesh: 1
---- !u!1 &2022958910
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2022958911}
-  - component: {fileID: 2022958912}
-  m_Layer: 0
-  m_Name: Square
-  m_TagString: Monster
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &2022958911
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2022958910}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.15, z: -2}
-  m_LocalScale: {x: 1.13, y: 0.7, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 240673032}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2022958912
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2022958910}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &2028882653
 GameObject:
   m_ObjectHideFlags: 0
@@ -9505,18 +9429,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 470227851}
     m_Modifications:
-    - target: {fileID: 4158260255295505314, guid: 5d48afae378e98944882b19336fde29c, type: 3}
-      propertyPath: monsterAttack
-      value: 
-      objectReference: {fileID: 2022958910}
-    - target: {fileID: 4181586975174199289, guid: 5d48afae378e98944882b19336fde29c, type: 3}
-      propertyPath: hp
-      value: 10
+    - target: {fileID: 2022958912, guid: 5d48afae378e98944882b19336fde29c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4181586975174199289, guid: 5d48afae378e98944882b19336fde29c, type: 3}
-      propertyPath: monsterAttack
-      value: 
-      objectReference: {fileID: 2022958910}
+    - target: {fileID: 4158260255295505314, guid: 5d48afae378e98944882b19336fde29c, type: 3}
+      propertyPath: setTimer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5789875056925932856, guid: 5d48afae378e98944882b19336fde29c, type: 3}
       propertyPath: m_RootOrder
       value: 3

@@ -22,6 +22,11 @@ public class MonsterMoveScript : MonoBehaviour
     [Header("check Player")]
     [SerializeField] private bool move;
 
+    [Header("Attack Timer")]
+    public float onTimer = 0;
+    public float offTimer = 0;
+    public float setOnTimer = 1f;
+    public float setOffTimer = 1f;
     private void Start()
     {
         spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
@@ -32,7 +37,7 @@ public class MonsterMoveScript : MonoBehaviour
     private void Update()
     {
         CheckPlayerIn();
-
+        AbleMonsterAtk();
         if (move == true)
         {
             if (!CheckPlayerFront() && CheckPlayerBack())
@@ -48,6 +53,10 @@ public class MonsterMoveScript : MonoBehaviour
                 flipX *= -1;
                 spriteRenderer.flipX = !spriteRenderer.flipX;
             }
+        }
+        else
+        {
+            
         }
 
     }
@@ -148,9 +157,9 @@ public class MonsterMoveScript : MonoBehaviour
         {
             if (hitPlayerIn.transform.CompareTag("Player"))
             {
+
                 //follow player
                 move = false;
-
                 return true;
             }
             else
@@ -163,6 +172,36 @@ public class MonsterMoveScript : MonoBehaviour
         {
             move = true;
             return false;
+        }
+    }
+    public void AbleMonsterAtk()
+    {
+        if (!(monsterAttack.activeInHierarchy))
+        {
+            if (onTimer <= 0)
+            {
+                monsterAttack.SetActive(true);
+                onTimer = setOnTimer;
+                offTimer = setOffTimer;
+            }
+            else
+            {
+                onTimer -= Time.deltaTime;
+            }
+        }
+        else
+        {
+
+            if (offTimer <= 0)
+            {
+                monsterAttack.SetActive(false);
+                offTimer = setOffTimer;
+                onTimer = setOnTimer;
+            }
+            else
+            {
+                offTimer -= Time.deltaTime;
+            }
         }
     }
 

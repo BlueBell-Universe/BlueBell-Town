@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2022958911}
   - component: {fileID: 2022958912}
+  - component: {fileID: 4150962090156729949}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Monster Attack
   m_TagString: MonsterAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,6 +59,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4150962090156729949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022958910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 885533c885f06f44e884c7da1156dd93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3121165746432967829
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,16 +504,3 @@ MonoBehaviour:
   HpBarFilled: {fileID: 6879431028551168336}
   dropItem:
   - {fileID: 6693746710342748026, guid: af01786084efd454986c79bc26bf6af4, type: 3}
---- !u!114 &1788092636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5789875056925932861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 885533c885f06f44e884c7da1156dd93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monsterAttack: {fileID: 2022958910}
