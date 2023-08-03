@@ -81,22 +81,21 @@ public class BackendManager : MonoBehaviour
         //});
 
         // [추가] 데이터 변경 및 덮어쓰기 함수
-        await Task.Run(() =>
-        {
-            BackendLogin.Instance.CustomLogin("user1", "1234");
+        //await Task.Run(() =>
+        //{
+        //    BackendLogin.Instance.CustomLogin("user1", "1234");
 
-            BackendGameData.Instance.GameDataGet();
+        //    BackendGameData.Instance.GameDataGet();
             
-            if(BackendGameData.userData == null)
-            {
-                BackendGameData.Instance.GameDataInsert();
-            }
+        //    if(BackendGameData.userData == null)
+        //    {
+        //        BackendGameData.Instance.GameDataInsert();
+        //    }
+        //    BackendGameData.Instance.LevelUp();
+        //    BackendGameData.Instance.GamedataUpdate();
 
-            //BackendGameData.Instance.LevelUp();
-            //BackendGameData.Instance.GamedataUpdate();
-
-            Debug.Log("테스트 종료");
-        });
+        //    Debug.Log("테스트 종료");
+        //});
 
     }
 }

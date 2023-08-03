@@ -76,6 +76,15 @@ public class BackendLogin : MonoBehaviour
         {
             Debug.Log("로그인이 성공했습니다. : " + bro);
             SceneManager.LoadScene("YujinScene");
+
+
+            // 데이터 가져오기
+            BackendGameData.Instance.GameDataGet();
+
+            if (BackendGameData.userData == null)
+            {
+                BackendGameData.Instance.GameDataInsert();
+            }
         }
         else
         {
@@ -92,7 +101,7 @@ public class BackendLogin : MonoBehaviour
         if (bro.IsSuccess())
         {
             Debug.Log("로그인이 성공했습니다. : " + bro);
-            //SceneManager.LoadScene("JiHunScene");
+            SceneManager.LoadScene("YujinScene");
         }
         else
         {
