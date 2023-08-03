@@ -16,6 +16,7 @@ public class DropItemScript : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             Debug.Log(name.Substring(0,name.IndexOf("(")) + ":" + itemInfo.itemAmount);
+            BackendGameData.Instance.GamedataUpdate(itemInfo.itemAmount);
             Destroy(gameObject);
         }
     }

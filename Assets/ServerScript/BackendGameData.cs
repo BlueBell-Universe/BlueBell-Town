@@ -158,8 +158,10 @@ public class BackendGameData
         Debug.Log("레벨업!\n" + userData);
     }
 
-    public void GamedataUpdate()
+    public void GamedataUpdate(int gold)
     {
+        userData.gold += gold;
+
         if(userData == null)
         {
             Debug.LogError("서버에서 다운받거나 새로 삽입한 데이터가 존재하지 않습니다. Insert 혹은 Get을 통해 데이터를 생성해주세요.");

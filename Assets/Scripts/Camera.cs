@@ -5,6 +5,7 @@ using UnityEngine;
 public class Camera : MonoBehaviour
 {
 	GameObject player;
+	float offset = 0.5f;
 	void Start()
 	{
 		player = GameObject.FindWithTag("Player");
@@ -18,6 +19,6 @@ public class Camera : MonoBehaviour
 	void LateUpdate()
 	{
 
-		transform.position = new Vector3(player.transform.position.x, 0.5f, -2f);
+		transform.position = new Vector3(player.transform.position.x, player.transform.position.y + offset, -2f);
 	}
 }

@@ -9,6 +9,8 @@ TagManager:
   - SkillObj
   - 1_1
   - MonsterAttack
+  - Platform
+  - Sky
   layers:
   - Default
   - TransparentFX

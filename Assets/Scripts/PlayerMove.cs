@@ -1,19 +1,22 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerMove : MonoBehaviour
 {
-
     [SerializeField]
     private float jumpForce;
+
+    [HideInInspector]
+    public bool isJumping;
 
     private Animator animator;
     private Joystick joystick;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rigid;
-    private bool isJumping;
+    
     public float speed;
     public GameObject FireObject;
-
+    
 
     public PlayerHP playerHPScript;
     public PlayerMana playerManaScript;
@@ -22,6 +25,7 @@ public class PlayerMove : MonoBehaviour
     {
         playerHPScript = GetComponent<PlayerHP>();
         playerManaScript = GetComponent<PlayerMana>();
+        speed = 3.0f;
         jumpForce = 3.0f;
         animator = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
@@ -53,7 +57,7 @@ public class PlayerMove : MonoBehaviour
         if(rigid.velocity.y < 0)
         {
             Debug.DrawRay(rigid.position, Vector3.down, new Color(0, 1, 0));
-            RaycastHit2D rayhit = Physics2D.Raycast(rigid.position, Vector3.down, 0.5f);
+            RaycastHit2D rayhit = Physics2D.Raycast(rigid.position, Vector3.down, -1.0f);
 
             if(rayhit.collider.CompareTag("Ground"))
             {

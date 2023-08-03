@@ -92,8 +92,8 @@ public class BackendManager : MonoBehaviour
                 BackendGameData.Instance.GameDataInsert();
             }
 
-            BackendGameData.Instance.LevelUp();
-            BackendGameData.Instance.GamedataUpdate();
+            //BackendGameData.Instance.LevelUp();
+            //BackendGameData.Instance.GamedataUpdate();
 
             Debug.Log("테스트 종료");
         });
