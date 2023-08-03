@@ -9,8 +9,8 @@ public class MonsterMoveScript : MonoBehaviour
     SpriteRenderer spriteRenderer;
     float rayBtmLength = 0.5f;
     float rayFtLength = 0.05f;
-    float moveSpeed = 1f;
-    float flipX = 1f;
+    public float moveSpeed = 1f;
+    public float flipX = 1f;
 
     [Header("Attack")]
     MonsterAttackScript monsterAttackScript;
@@ -27,36 +27,60 @@ public class MonsterMoveScript : MonoBehaviour
     public float offTimer = 0;
     public float setOnTimer = 1f;
     public float setOffTimer = 1f;
+
+    [Header("Check Slope")]
+    public Slope slope;
     private void Start()
     {
         spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
         monsterAttackScript = GetComponent<MonsterAttackScript>();
-
+        slope = GetComponent<Slope>();
     }
 
     private void Update()
     {
-        CheckPlayerIn();
+        //CheckPlayerIn();
         AbleMonsterAtk();
-        if (move == true)
+        //if (move == true)
+        //{
+        //    if (!CheckPlayerFront() && CheckPlayerBack())
+        //    {
+        //        flipX *= -1;
+        //    }
+        //    if (CheckGround() && !CheckFront())
+        //    {
+        //        MonsterMove();
+        //    }
+        //    else if ((!CheckGround() || CheckFront()) || (CheckGround() && CheckFront()))
+        //    {
+        //        flipX *= -1;
+        //        spriteRenderer.flipX = !spriteRenderer.flipX;
+        //    }
+        //}
+        //else
+        //{
+
+        //}
+
+        if (!CheckPlayerIn())
         {
-            if (!CheckPlayerFront() && CheckPlayerBack())
+            MonsterMove();
+            if (CheckGround() && CheckFront())
             {
-                flipX *= -1;
+                if (!slope.SlopeCheckUp(flipX, 30))
+                {
+                    flipX *= -1;
+                    spriteRenderer.flipX = !spriteRenderer.flipX;
+                }
             }
-            if (CheckGround() && !CheckFront())
+            if (!CheckFront())
             {
-                MonsterMove();
+                if (!slope.SlopeCheckDn(flipX, 30))
+                {
+                    flipX *= -1;
+                    spriteRenderer.flipX = !spriteRenderer.flipX;
+                }
             }
-            else if ((!CheckGround() || CheckFront()) || (CheckGround() && CheckFront()))
-            {
-                flipX *= -1;
-                spriteRenderer.flipX = !spriteRenderer.flipX;
-            }
-        }
-        else
-        {
-            
         }
 
     }
@@ -64,7 +88,7 @@ public class MonsterMoveScript : MonoBehaviour
     {
         Vector2 startRay = new Vector2(transform.position.x + flipX * 0.3f, transform.position.y - 0.25f);
         Debug.DrawRay(startRay, -transform.up * rayBtmLength, Color.red);
-        hitBtm = Physics2D.Raycast(startRay, -transform.up, rayBtmLength);
+        hitBtm = Physics2D.Raycast(startRay, -transform.up, rayBtmLength, LayerMask.GetMask("Ground"));
         if (hitBtm)
         {
             return true;
@@ -78,8 +102,8 @@ public class MonsterMoveScript : MonoBehaviour
     {
         Vector2 startRay = new Vector2(transform.position.x + flipX * 0.35f, transform.position.y - 0.2f);
         Debug.DrawRay(startRay, transform.right * rayFtLength, Color.red);
-        hitFt = Physics2D.Raycast(startRay, transform.right, rayFtLength);
-        if (hitFt && !hitFt.transform.CompareTag("Player"))
+        hitFt = Physics2D.Raycast(startRay, transform.right, rayFtLength, LayerMask.GetMask("Ground"));
+        if (hitFt)
         {
             return true;
         }
@@ -157,20 +181,15 @@ public class MonsterMoveScript : MonoBehaviour
         {
             if (hitPlayerIn.transform.CompareTag("Player"))
             {
-
-                //follow player
-                move = false;
                 return true;
             }
             else
             {
-                move = true;
                 return false;
             }
         }
         else
         {
-            move = true;
             return false;
         }
     }

@@ -1887,7 +1887,7 @@ GameObject:
   - component: {fileID: 758932238}
   - component: {fileID: 758932237}
   - component: {fileID: 758932239}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3634,7 +3634,7 @@ GameObject:
   - component: {fileID: 1032219220}
   - component: {fileID: 1032219219}
   - component: {fileID: 1032219221}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -9429,12 +9429,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 470227851}
     m_Modifications:
-    - target: {fileID: 2022958912, guid: 5d48afae378e98944882b19336fde29c, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
+    - target: {fileID: 2635885883136456624, guid: 5d48afae378e98944882b19336fde29c, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4158260255295505314, guid: 5d48afae378e98944882b19336fde29c, type: 3}
-      propertyPath: setTimer
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5789875056925932856, guid: 5d48afae378e98944882b19336fde29c, type: 3}
