@@ -3537,7 +3537,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1010474254}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2138670948}
+        m_TargetAssemblyTypeName: PlayerSkills, Assembly-CSharp
+        m_MethodName: Skill2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1010474254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4833,8 +4845,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1291748879}
-        m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
+      - m_Target: {fileID: 2138670948}
+        m_TargetAssemblyTypeName: PlayerSkills, Assembly-CSharp
         m_MethodName: Skill1
         m_Mode: 1
         m_Arguments:
@@ -5171,6 +5183,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
+--- !u!1 &1241082873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4105362945620786469, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
+  m_PrefabInstance: {fileID: 1241082872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1241082874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2138670951, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
+  m_PrefabInstance: {fileID: 1241082872}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241082873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138b7bb43bc3d734f93ee2972f28eab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1279630643
 GameObject:
   m_ObjectHideFlags: 0
@@ -5256,7 +5284,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4952657964393573960, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
   m_PrefabInstance: {fileID: 1241082872}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1241082873}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f9474baea9ea3a4fb1ef7e17fa86553, type: 3}
@@ -9490,6 +9518,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4105362945620786471, guid: ebea5f8b8163f9a4ab9d9a1b45444e28, type: 3}
   m_PrefabInstance: {fileID: 1241082872}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2138670948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241082873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b8a62fefd9b5d042ac88593166908ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireObject: {fileID: 1163413052788614120, guid: fab867c206411244bbfcfe3415be0c37, type: 3}
+  EnergyBallObject: {fileID: 4570488684248892907, guid: 76bd1d3c1824ae14a8aa19b7b62ef9ae, type: 3}
+  playerManaScript: {fileID: 1241082874}
 --- !u!1001 &4150962090156729947
 PrefabInstance:
   m_ObjectHideFlags: 0

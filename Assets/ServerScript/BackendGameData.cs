@@ -59,7 +59,7 @@ public class BackendGameData
     private string gameDataRowInDate = string.Empty;
 
 
-    // 게임정보 삽입
+    // 게임정보 삽입 (초기 설정)
     public void GameDataInsert()
     {
         if(userData == null)

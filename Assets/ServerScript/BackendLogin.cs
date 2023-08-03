@@ -67,6 +67,7 @@ public class BackendLogin : MonoBehaviour
     }
 
     public void CustomLogin(/*string id, string pw*/) // Step 3. 로그인 구현하기 로직
+        // 현재 사용중인 로그인
     {
         Debug.Log("로그인을 요청합니다.");
 
