@@ -39,21 +39,19 @@ public class PlayerSkills : MonoBehaviour
 
     public void Skill2()
     {
-        //Vector3 targetPos;
-        //if (this.transform.eulerAngles.y > 0)
-        //{
-        //    targetPos = new Vector3(transform.position.x - 1.0f, transform.position.y + 0.5f, -1.0f);
-        //    Instantiate(EnergyBallObject, targetPos, Quaternion.Euler(0, 180, 0));
-        //}
-        //else
-        //{
-        //    targetPos = new Vector3(transform.position.x + 1.0f, transform.position.y + 0.5f, -1.0f);
-        //    Instantiate(EnergyBallObject, targetPos, Quaternion.identity);
-        //}
+        if(this.transform.eulerAngles.y > 0)
+        {
+            GameObject energyball = Instantiate(EnergyBallObject, new Vector3(transform.position.x - 0.5f, transform.position.y + 0.5f, -1.0f), transform.rotation);
+            Rigidbody2D rigid = energyball.GetComponent<Rigidbody2D>();
+            rigid.AddForce(transform.right * 10.0f, ForceMode2D.Impulse);
+        }
+        else
+        {
+            GameObject energyball = Instantiate(EnergyBallObject, new Vector3(transform.position.x + 0.5f, transform.position.y + 0.5f, -1.0f), transform.rotation);
+            Rigidbody2D rigid = energyball.GetComponent<Rigidbody2D>();
+            rigid.AddForce(transform.right * 10.0f, ForceMode2D.Impulse);
+        }
 
-        GameObject energyball = Instantiate(EnergyBallObject, new Vector3(transform.position.x + 0.5f, transform.position.y + 0.5f, -1.0f), transform.rotation);
-
-        Rigidbody2D rigid = energyball.GetComponent<Rigidbody2D>();
-        rigid.AddForce(transform.right * 10.0f, ForceMode2D.Impulse);
+        
     }
 }

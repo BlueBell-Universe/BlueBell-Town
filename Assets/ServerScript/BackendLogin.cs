@@ -76,7 +76,7 @@ public class BackendLogin : MonoBehaviour
         if (bro.IsSuccess())
         {
             Debug.Log("로그인이 성공했습니다. : " + bro);
-            SceneManager.LoadScene("YujinScene");
+            SceneManager.LoadScene("JihunScene");
 
 
             // 데이터 가져오기

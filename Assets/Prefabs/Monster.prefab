@@ -443,7 +443,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &17520589124922753
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -470,6 +470,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.13, y: 0.7}
   m_EdgeRadius: 0
+--- !u!114 &791036015293206091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5789875056925932861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efba21093beaf64f93b299b2317fe9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4158260255295505314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +494,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041a3cc48562e7b4891ce1682984c491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 1
+  flipX: 1
   rayPlayerLength: 2
   rayInLength: 0.6
   monsterAttack: {fileID: 2022958910}
@@ -490,6 +504,7 @@ MonoBehaviour:
   offTimer: 0
   setOnTimer: 1
   setOffTimer: 0.1
+  slope: {fileID: 0}
 --- !u!114 &4181586975174199289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,15 +526,3 @@ MonoBehaviour:
   HpBarFilled: {fileID: 6879431028551168336}
   dropItem:
   - {fileID: 6693746710342748026, guid: af01786084efd454986c79bc26bf6af4, type: 3}
---- !u!114 &791036015293206091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5789875056925932861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7efba21093beaf64f93b299b2317fe9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
