@@ -81,6 +81,11 @@ public class MonsterMoveScript : MonoBehaviour
                     spriteRenderer.flipX = !spriteRenderer.flipX;
                 }
             }
+            if (!CheckGround() && !CheckFront())
+            {
+                flipX *= -1;
+                spriteRenderer.flipX = !spriteRenderer.flipX;
+            }
         }
 
     }

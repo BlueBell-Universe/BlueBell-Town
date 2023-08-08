@@ -13,6 +13,8 @@ public class PlayerHP : MonoBehaviour
 
     public MonsterStat monsterStat;
     public bool isColliding = false;
+    public bool isInv = false;
+    public SpriteRenderer[] sprites;
 
     private void Awake()
     {
@@ -20,6 +22,7 @@ public class PlayerHP : MonoBehaviour
         currentHP = HP;
         hpText.text = currentHP + "/" + HP;
         monsterStat = GameObject.FindGameObjectWithTag("Monster").GetComponent<MonsterStat>();
+        sprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
     }
     public void OnDamaged(float damage)
     {
@@ -41,7 +44,7 @@ public class PlayerHP : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("MonsterAttack"))
+        if (collision.CompareTag("MonsterAttack") && !isInv)
         {
             if (isColliding)
             {
@@ -49,12 +52,52 @@ public class PlayerHP : MonoBehaviour
             }
             isColliding = true;
             OnDamaged(monsterStat.atk);
+            isInv = true;
             StartCoroutine(Reset());
+            StartCoroutine(OnInv());
         }
     }
     IEnumerator Reset()
     {
         yield return new WaitForEndOfFrame();
         isColliding = false;
+    }
+    IEnumerator OnInv()
+    {
+        StartCoroutine(OnColorChange());
+        yield return new WaitForSeconds(1f);
+        isInv = false;
+    }
+    IEnumerator OnColorChange()
+    {
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].color = new Color(1, 1, 1, 0.5f);
+        }
+        yield return new WaitForSeconds(0.2f);
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].color = new Color(1, 1, 1, 1);
+        }
+        yield return new WaitForSeconds(0.2f);
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].color = new Color(1, 1, 1, 0.5f);
+        }
+        yield return new WaitForSeconds(0.2f);
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].color = new Color(1, 1, 1, 1);
+        }
+        yield return new WaitForSeconds(0.2f);
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].color = new Color(1, 1, 1, 0.5f);
+        }
+        yield return new WaitForSeconds(0.2f);
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            sprites[i].color = new Color(1, 1, 1, 1);
+        }
     }
 }
