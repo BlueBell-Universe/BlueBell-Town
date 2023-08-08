@@ -115,6 +115,8 @@ MonoBehaviour:
   hpText: {fileID: 0}
   monsterStat: {fileID: 0}
   isColliding: 0
+  isInv: 0
+  sprites: []
 --- !u!114 &2138670951
 MonoBehaviour:
   m_ObjectHideFlags: 0
