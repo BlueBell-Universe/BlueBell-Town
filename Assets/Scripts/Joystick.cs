@@ -14,7 +14,7 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointer
     private Vector3 input = Vector3.zero;
     private Canvas canvas;
 
-    public float Horizontal { get { return input.x; } }
+    public float Horizontal { get { if (input.x > 0) { return 1; } else if (input.x < 0) return -1; else return 0; } }
 
     void Start()
     {
